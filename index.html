@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FormWizard_v8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<style>
+    .radio-group {
+        display: flex;
+        gap: 15px; /* Adjusts the space between radio buttons */
+    }
+
+    .radio-group div {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .radio-group label {
+        margin-left: 5px; /* Adds space between radio and label */
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <form action="" id="wizard">
+            <!-- SECTION 1 -->
+            <h4></h4>
+            <section>
+                <h3>PERSONAL INFORMATION PART 1</h3>
+                <div class="form-row">
+                    <div class="form-holder">
+                    
+                        <input type="text" class="form-control" placeholder="MOBILE NUMBER">
+                    </div>
+                    <div class="form-holder">
+                
+                        <input type="text" class="form-control" placeholder="LANDLINE NUMBER">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-holder">
+                     
+                        <input type="text" class="form-control" placeholder="MIDDLE NAME">
+                    </div>
+                    <div class="form-holder">
+                     
+                        <input type="text" class="form-control" placeholder="EXTENSION NAME">
+                    </div>
+
+                </div>
+
+                <div class="form-row" style="display: flex; align-items: center;">
+
+                    <div class="form-holder" style="display: flex; align-items: center;">
+                        <p style="color: black;"><strong>SEX:</strong></p>
+                        <label>
+                            <input type="radio" name="sex" value="male">
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="sex" value="female">
+                            Female
+                        </label>
+                    </div>
+
+
+                </div>
+
+
+
+                <p style="color: black; margin-bottom: 8px;"><strong>ADDRESS</strong></p>
+
+                <div class="form-row">
+                    <div class="form-holder">
+                      
+                        <input type="text" class="form-control" placeholder="HOUSE/LOT/BLDG. NO./PUROK">
+                    </div>
+
+                    <div class="form-holder">
+                       
+                        <input type="text" class="form-control" placeholder="STREET/SITIO/SUBDV.">
+                    </div>
+                    <div class="form-holder">
+                        
+                        <input type="text" class="form-control" placeholder="BARANGAY">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-holder">
+                       
+                        <input type="text" class="form-control" placeholder="MUNICIPALITY/CITY">
+                    </div>
+
+                    <div class="form-holder">
+                    
+                        <input type="text" class="form-control" placeholder="PROVINCE">
+                    </div>
+                    <div class="form-holder">
+                       
+                        <input type="text" class="form-control" placeholder="REGION">
+                    </div>
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>MOTHER'S MAIDEN NAME</strong></p>
+                <div>
+                    <div class="form-holder">
+                     
+                        <input type="text" class="form-control" placeholder="MOTHER'S MAIDEN NAME">
+                    </div>
+
+                </div>
+
+
+            </section>
+
+            <!-- SECTION 2 -->
+            <h4></h4>
+            <section>
+                <h3>PERSONAL INFORMATION PART 2</h3>
+                <div class="form-row">
+                    <div class="form-holder">
+                      
+                        <input type="number" class="form-control" placeholder="MOBILE NUMBER">
+                    </div>
+                    <div class="form-holder">
+                     
+                        <input type="number" class="form-control" placeholder="LANDLINE NUMBER">
+                    </div>
+
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>PLACE OF BIRTH</strong></p>
+
+                <div class="form-row">
+
+                    <div class="form-holder">
+                    
+                        <input type="text" class="form-control" placeholder="MUNICIPALITY/CITY">
+                    </div>
+
+                    <div class="form-holder">
+                       
+                        <input type="text" class="form-control" placeholder="PROVINCE/STATE">
+                    </div>
+                    <div class="form-holder">
+                    
+                        <input type="text" class="form-control" placeholder="COUNTRY">
+                    </div>
+                </div>
+
+
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <!-- Religion Section -->
+                    <div style="flex: 1; margin-right: 20px;">
+                        <p style="color: black; margin-bottom: 8px;"><strong>RELIGION</strong></p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="christianity" name="religion" value="Christianity"
+                                            onclick="toggleOthersInput()">
+                                        <label for="christianity">Christianity</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="islam" name="religion" value="Islam"
+                                            onclick="toggleOthersInput()">
+                                        <label for="islam">Islam</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="others" name="religion" value="Others"
+                                            onclick="toggleOthersInput()">
+                                        <label for="others">Others</label>
+                                    </div>
+                                    <div id="others-input" style="display:none; margin-left: 10px;">
+                                        <input type="text" class="form-control" placeholder="Please specify"
+                                            id="other-religion"
+                                            style="border: none; border-bottom: 2px solid #000; outline: none; padding: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Civil Status Section -->
+                    <div style="flex: 1;">
+                        <p style="color: black; margin-bottom: 8px;"><strong>CIVIL STATUS</strong></p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="single" name="civil-status" value="Single"
+                                            onclick="toggleSpouseInput()">
+                                        <label for="single">Single</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="married" name="civil-status" value="Married"
+                                            onclick="toggleSpouseInput()">
+                                        <label for="married">Married</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="widowed" name="civil-status" value="Widowed"
+                                            onclick="toggleSpouseInput()">
+                                        <label for="widowed">Widowed</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="separated" name="civil-status" value="Separated"
+                                            onclick="toggleSpouseInput()">
+                                        <label for="separated">Separated</label>
+                                    </div>
+                                    <div id="spouse-input" style="display:none; margin-left: 10px;">
+                                        <input type="text" class="form-control" placeholder="Spouse's Name"
+                                            id="spouse-name"
+                                            style="border: none; border-bottom: 2px solid #000; outline: none; width: 150px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <!-- Person with Disability Section -->
+                    <div style="flex: 1; margin-right: 20px;">
+                        <p style="color: black; margin-bottom: 8px;"><strong>PERSON WITH DISABILITY</strong></p>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="form-holder">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="disability-yes" name="disability" value="Yes">
+                                        <label for="disability-yes">Yes</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="disability-no" name="disability" value="No">
+                                        <label for="disability-no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4P's Beneficiary Section -->
+                    <div style="flex: 1;">
+                        <p style="color: black; margin-bottom: 8px;"><strong>4P's BENEFICIARY ?</strong></p>
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="form-holder">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="fourp-yes" name="fourp-beneficiary" value="Yes">
+                                        <label for="fourp-yes">Yes</label>
+                                    </div>
+                                    <div style="margin-right: 15px;">
+                                        <input type="radio" id="fourp-no" name="fourp-beneficiary" value="No">
+                                        <label for="fourp-no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p style="color: black; margin-bottom: 8px;"><strong>PERSON WITH DISABILITY</strong></p>
+                <div class="form-row" style="margin-top: 10px;">
+                    <div class="form-holder">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="preschool" name="education" value="Pre-school">
+                                <label for="preschool">Pre-school</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="elementary" name="education" value="Elementary">
+                                <label for="elementary">Elementary</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="highschool" name="education" value="Highschool">
+                                <label for="highschool">Highschool</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="junior-high" name="education" value="Junior High School (K-12)">
+                                <label for="junior-high">Junior High School (K-12)</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="senior-high" name="education" value="Senior High School (K-12)">
+                                <label for="senior-high">Senior High School (K-12)</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="college" name="education" value="College">
+                                <label for="college">College</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="vocational" name="education" value="Vocational">
+                                <label for="vocational">Vocational</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="postgraduate" name="education" value="Post-graduate">
+                                <label for="postgraduate">Post-graduate</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="none" name="education" value="None">
+                                <label for="none">None</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <!-- SECTION 3 -->
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 16px;">PESONAL INFORMATION PART 3</h3>
+
+
+                <p style="color: black; margin-bottom: 8px;"><strong>HOUSEHOLD HEAD</strong></p>
+                <div class="form-row" style="display: flex; align-items: center;">
+                    <div class="form-holder">
+                        <div style="display: flex; align-items: center;">
+                            <input type="radio" id="household-head-yes" name="household-head" value="Yes"
+                                onclick="toggleHouseholdHeadInput(true)">
+                            <label for="household-head-yes" style="margin-left: 10px;">Yes</label>
+                            <input type="radio" id="household-head-no" name="household-head" value="No"
+                                onclick="toggleHouseholdHeadInput(false)" style="margin-left: 20px;">
+                            <label for="household-head-no" style="margin-left: 10px;">No</label>
+                        </div>
+                        <div id="household-head-input" style="display: none; margin-top: 10px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="household-head-name">Name:</label>
+                                <input type="text" id="household-head-name" name="household-head-name"
+                                    placeholder="Enter household head's name" style="margin-bottom: 10px;">
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="relationship">Relationship:</label>
+                                <input type="text" id="relationship" name="relationship"
+                                    placeholder="Enter relationship to household head">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>MEMBER OF AN INDIGENOUS GROUP</strong></p>
+
+                <div class="form-row" style="margin-top: 10px;">
+                    <div class="form-holder">
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <input type="radio" id="indigenous-yes" name="indigenous" value="Yes"
+                                onclick="toggleInput(true)">
+                            <label for="indigenous-yes" style="margin-left: 10px;">Yes</label>
+                            <input type="radio" id="indigenous-no" name="indigenous" value="No"
+                                onclick="toggleInput(false)" style="margin-left: 20px;">
+                            <label for="indigenous-no" style="margin-left: 10px;">No</label>
+                        </div>
+                        <div id="indigenous-input" style="display: none; margin-top: 10px;">
+                            <label for="indigenous-group">Please specify:</label>
+                            <input type="text" id="indigenous-group" name="indigenous-group"
+                                placeholder="Enter indigenous group">
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>WITH GOVERNMENT ID?</strong></p>
+                <div class="form-row" style="margin-top: 10px;">
+                    <div class="form-holder">
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <input type="radio" id="gov-id-yes" name="government-id" value="Yes"
+                                onclick="toggleGovIdInput(true)">
+                            <label for="gov-id-yes" style="margin-left: 10px;">Yes</label>
+                            <input type="radio" id="gov-id-no" name="government-id" value="No"
+                                onclick="toggleGovIdInput(false)" style="margin-left: 20px;">
+                            <label for="gov-id-no" style="margin-left: 10px;">No</label>
+                            <div id="gov-id-input"
+                                style="display: none; align-items: center; margin-left: 20px; flex-wrap: nowrap;">
+                                <label for="gov-id-type" style="margin-right: 10px;">Type of ID:</label>
+                                <input type="text" id="gov-id-type" name="gov-id-type" placeholder="Enter type of ID"
+                                    style="margin-right: 10px;">
+                                <label for="gov-id-number" style="margin-right: 10px;">ID Number:</label>
+                                <input type="text" id="gov-id-number" name="gov-id-number"
+                                    placeholder="Enter ID number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>4P's BENEFICIARY ?</strong></p>
+
+                <div class="form-row" style="margin-top: 10px;">
+                    <div class="form-holder">
+                        <label for="farmers-association">Member of any farmers association/cooperative?</label>
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <input type="radio" id="association-yes" name="farmers-association" value="Yes"
+                                onclick="toggleAssociationInput(true)">
+                            <label for="association-yes" style="margin-left: 10px;">Yes</label>
+                            <input type="radio" id="association-no" name="farmers-association" value="No"
+                                onclick="toggleAssociationInput(false)" style="margin-left: 20px;">
+                            <label for="association-no" style="margin-left: 10px;">No</label>
+
+                            <div id="association-input"
+                                style="display: none; align-items: center; margin-left: 20px; flex-wrap: nowrap;">
+                                <label for="association-name" style="margin-right: 10px;">Specify:</label>
+                                <input type="text" id="association-name" name="association-name"
+                                    placeholder="Enter association name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>HOUSEHOLD MEMBERS</strong></p>
+                <div class="form-row">
+                    <div class="form-holder">
+                   
+                        <input type="text" class="form-control" placeholder="NUMBER OF LIVING HOUSEHOLD MEMBERS">
+                    </div>
+                    <div class="form-holder">
+                      
+                        <input type="number" class="form-control" placeholder="NO. OF MALE">
+                    </div>
+                    <div class="form-holder">
+                      
+                        <input type="number" class="form-control" placeholder="NO. OF FEMALE">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                </div>
+
+
+
+
+            </section>
+
+            <!-- SECTION 4 -->
+            <h4></h4>
+            <section>
+                <h3>FARM PROFILE</h3>
+
+                <p style="color: black; margin-bottom: 8px;"><strong>MAIN LIVELIHOOD</strong></p>
+                <div class="form-holder">
+                    <div class="radio-group">
+                        <div>
+                            <input type="radio" id="farmer" name="livelihood" value="farmer" onclick="showOptions()">
+                            <label for="farmer">Farmer</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="farmworker" name="livelihood" value="farmworker" onclick="showOptions()">
+                            <label for="farmworker">Farmworker</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="fishfolk" name="livelihood" value="fishfolk" onclick="showOptions()">
+                            <label for="fishfolk">Fishfolk</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="agriyouth" name="livelihood" value="agriyouth" onclick="showOptions()">
+                            <label for="agriyouth">Agriyouth</label>
+                        </div>
+                    </div>
+                
+                <!-- Farmer options -->
+                <div id="farmerOptions" class="additional-options" style="display:none;">
+                    <p style="color:black"><strong>Type of Farming Activity:</p></strong>
+                    <div>
+                        <input type="checkbox" id="rice" name="farmingActivity" value="rice">
+                        <label for="rice">Rice</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="corn" name="farmingActivity" value="corn">
+                        <label for="corn">Corn</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="otherCrops" name="farmingActivity" value="otherCrops" onclick="toggleOtherInput('otherCropsInput')">
+                        <label for="otherCrops">Other crops</label>
+                        <input type="text" id="otherCropsInput" placeholder="Specify" style="display:none;">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="livestock" name="farmingActivity" value="livestock" onclick="toggleOtherInput('livestockInput')">
+                        <label for="livestock">Livestock</label>
+                        <input type="text" id="livestockInput" placeholder="Specify" style="display:none;">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="poultry" name="farmingActivity" value="poultry" onclick="toggleOtherInput('poultryInput')">
+                        <label for="poultry">Poultry</label>
+                        <input type="text" id="poultryInput" placeholder="Specify" style="display:none;">
+                    </div>
+                </div>
+
+           
+            
+                <!-- Farmworker options -->
+                <div id="farmworkerOptions" class="additional-options" style="display:none;">
+                    <p style="color:black"><strong>Kind of Work:</p></strong>
+                    <div>
+                        <input type="checkbox" id="landPreparation" name="workKind" value="landPreparation">
+                        <label for="landPreparation">Land Preparation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="planting" name="workKind" value="planting">
+                        <label for="planting">Planting/Transplanting</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cultivation" name="workKind" value="cultivation">
+                        <label for="cultivation">Cultivation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="harvesting" name="workKind" value="harvesting">
+                        <label for="harvesting">Harvesting</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="workOthers" name="workKind" value="workOthers" onclick="toggleOtherInput('workOthersInput')">
+                        <label for="workOthers">Others</label>
+                        <input type="text" id="workOthersInput" placeholder="Specify" style="display:none;">
+                    </div>
+                </div>
+                
+              
+                <!-- Fishfolk options -->
+                <div id="fishfolkOptions" class="additional-options" style="display:none;">
+                
+                    <p><strong style="color:black">Note:</strong> The lending conduct shall coordinate with the Bureau of Fisheries and Aquatic Resources (BFAR) in the issuance of a certification that the fisherfolk-borrower under PUNLA/PLEA is registered under the Municipal Registration (FishR).</p>
+                    <p style="color:black"><strong>Type of Fishing Activity:</p></strong>
+                    <div>
+                        <input type="checkbox" id="fishCapture" name="fishingActivity" value="fishCapture">
+                        <label for="fishCapture">Fish Capture</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="aquaculture" name="fishingActivity" value="aquaculture">
+                        <label for="aquaculture">Aquaculture</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="gleaning" name="fishingActivity" value="gleaning">
+                        <label for="gleaning">Gleaning</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fishingOthers" name="fishingActivity" value="othersFishing" onclick="toggleOtherInput('fishingOthersInput')">
+                        <label for="fishingOthers">Others</label>
+                        <input type="text" id="fishingOthersInput" placeholder="Specify" style="display:none;">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fishProcessing" name="fishingActivity" value="fishProcessing">
+                        <label for="fishProcessing">Fish Processing</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fishVending" name="fishingActivity" value="fishVending">
+                        <label for="fishVending">Fish Vending</label>
+                    </div>
+                </div>
+                
+                <!-- Agriyouth options -->
+                <div id="agriyouthOptions" class="additional-options" style="display:none;">
+                    <p><strong style="color: black;">Note:</strong> For the purposes of trainings, financial assistance, and other programs catered to the youth with involvement in any agriculture activity.</p>
+                    <p style="color:black"><strong>Type of Involvement:</p></strong>
+                    <div>
+                        <input type="checkbox" id="farmingHousehold" name="agriYouthInvolvement" value="farmingHousehold">
+                        <label for="farmingHousehold">Part of a farming household</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="formalCourse" name="agriYouthInvolvement" value="formalCourse">
+                        <label for="formalCourse">Attending/attended formal agri-fishery related course</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="nonFormalCourse" name="agriYouthInvolvement" value="nonFormalCourse">
+                        <label for="nonFormalCourse">Attending/attended non-formal agri-fishery related course</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="agriActivity" name="agriYouthInvolvement" value="agriActivity">
+                        <label for="agriActivity">Participated in any agricultural activity/program</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="agriYouthOthers" name="agriYouthInvolvement" value="othersAgriYouth" onclick="toggleOtherInput('agriYouthOthersInput')">
+                        <label for="agriYouthOthers">Others</label>
+                        <input type="text" id="agriYouthOthersInput" placeholder="Specify" style="display:none;">
+                    </div>
+                </div>
+
+                
+                <p style="color: black; margin-bottom: 8px;"><strong>GROSS ANNUAL INCOME LAST YEAR:</strong></p>
+
+                <div class="form-row">
+                    <div class="form-holder">
+                       
+                        <input type="number" class="form-control" placeholder="FARMING INCOME">
+                    </div>
+
+                    <div class="form-holder">
+                      
+                        <input type="number" class="form-control" placeholder="NON-FARMING INCOME">
+                    </div>
+
+            </section>
+
+             <!-- SECTION 5 -->
+            <h4></h4>
+            <section>
+                <h3>ACCOUNT</h3>
+                <div class="form-row">
+                    <div class="form-holder">
+                    
+                        <input type="email" class="form-control" placeholder="EMAIL">
+                    </div>
+                    <div class="form-holder">
+                
+                        <input type="password" class="form-control" placeholder="PASSWORD">
+                    </div>
+
+                </div>
+            </section>
+
+        </form>
+    </div>
+
+    <script>
+        function toggleOthersInput() {
+            const othersInput = document.getElementById('others-input');
+            const othersRadio = document.getElementById('others');
+
+            if (othersRadio.checked) {
+                othersInput.style.display = 'inline'; // Change to inline
+            } else {
+                othersInput.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        function toggleSpouseInput() {
+            const spouseInput = document.getElementById('spouse-input');
+            const marriedRadio = document.getElementById('married');
+
+            if (marriedRadio.checked) {
+                spouseInput.style.display = 'block'; // Show input if married
+            } else {
+                spouseInput.style.display = 'none'; // Hide input for other options
+            }
+        }
+    </script>
+
+    <script>
+        function toggleInput(show) {
+            const inputDiv = document.getElementById('indigenous-input');
+            inputDiv.style.display = show ? 'block' : 'none';
+        }
+    </script>
+
+    <script>
+        function toggleGovIdInput(show) {
+            const inputDiv = document.getElementById('gov-id-input');
+            inputDiv.style.display = show ? 'flex' : 'none';
+        }
+    </script>
+
+    <script>
+        function toggleAssociationInput(show) {
+            const inputDiv = document.getElementById('association-input');
+            inputDiv.style.display = show ? 'block' : 'none';
+        }
+    </script>
+
+    <script>
+        function toggleHouseholdHeadInput(isHead) {
+            const householdHeadInput = document.getElementById('household-head-input');
+            householdHeadInput.style.display = isHead ? 'none' : 'block';
+        }
+    </script>
+
+<script>
+    function showOptions() {
+        // Hide all additional options
+        document.querySelectorAll('.additional-options').forEach(option => {
+            option.style.display = 'none';
+        });
+    
+        // Get the selected livelihood
+        const selectedLivelihood = document.querySelector('input[name="livelihood"]:checked');
+    
+        // Show the corresponding options based on selection
+        if (selectedLivelihood) {
+            const value = selectedLivelihood.value;
+            if (value === 'farmer') {
+                document.getElementById('farmerOptions').style.display = 'block';
+            } else if (value === 'farmworker') {
+                document.getElementById('farmworkerOptions').style.display = 'block';
+            } else if (value === 'fishfolk') {
+                document.getElementById('fishfolkOptions').style.display = 'block';
+            } else if (value === 'agriyouth') {
+                document.getElementById('agriyouthOptions').style.display = 'block';
+            }
+        }
+    }
+    
+    function toggleOtherInput(inputId) {
+        const inputField = document.getElementById(inputId);
+        const checkbox = document.getElementById(inputId.replace('Input', ''));
+        inputField.style.display = checkbox.checked ? 'block' : 'none';
+    }
+    </script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="js/jquery.steps.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Template created and distributed by Colorlib -->
+</body>
+
+</html>
